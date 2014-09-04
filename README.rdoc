@@ -1,28 +1,25 @@
-== README
+= ChordsPlay
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://chordsplay.herokuapp.com
 
-Things you may want to cover:
+ChordsPlay is an app where users can discover songs with chords, so that they can impress their friends by cajoling everyone into a singalong while drinking.
 
-* Ruby version
+== Technologies Used
+* Ruby on Rails
+* Backbones
+* Handlebars
+* GuitarParty API
+* Nokogiri
+* Zurb Foundation
 
-* System dependencies
+== Entity Relationship Diagram
+https://www.lucidchart.com/publicSegments/view/5407a638-bee8-4a02-8588-1f020a0087a0/image.png
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+== Features to come
+* Add more songs to database
+* Soundcloud/Youtube clips of songs
+* Better user experience
+* Chord transposing 
+* Song ratings/popularity
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

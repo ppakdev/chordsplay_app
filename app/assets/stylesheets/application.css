@@ -15,16 +15,7 @@
  *= require foundation_and_overrides
 
  */
-
- {
-    background-image:url("guitar.jpg");
-    background-color:black;
-    background-repeat: no-repeat;
-    width: 100% !important;
-    height: 100%;
-    z-index: 0;
-}
-
+ 
 .chord-list {
    padding:0;
    margin:0;

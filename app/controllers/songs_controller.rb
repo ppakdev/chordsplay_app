@@ -7,6 +7,18 @@ class SongsController < ApplicationController
     @songs = Song.all
   end
 
+  def search
+    binding.pry
+    if params[:title]
+      songs = Song.where(title: params[:title])
+    elsif params[:artist]
+      songs = Song.where(artist: params[:artist])
+    elsif params[:chords]
+      songs = Song.where(chords: params[:chords])
+    end
+    render json: songs
+  end
+
   # GET /songs/1
   # GET /songs/1.json
   def show

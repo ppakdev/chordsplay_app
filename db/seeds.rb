@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 
 # billboard top 100 lists
-(2000..Time.now.year-1).each do |year|
+(2006..Time.now.year-1).each do |year|
   url = "http://billboardtop100of.com/#{year}-2/"
   doc = Nokogiri::HTML(open(url))
 

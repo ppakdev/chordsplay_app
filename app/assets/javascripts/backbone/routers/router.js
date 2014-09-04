@@ -20,6 +20,7 @@ App.Router = Backbone.Router.extend({
     $('div#chord-section').addClass('hide');
     $('section#song').empty();
     $('.results-list').empty();
+    $('.chords').removeClass('success');
   },
 
   results: function() {

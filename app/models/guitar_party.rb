@@ -7,6 +7,8 @@ class GuitarParty
     api_call = HTTParty.get(URI.escape(url),
                             headers: {"Guitarparty-Api-Key" => ENV["GUITAR_PARTY_API_KEY"]})
     api_results = api_call["objects"]
+
+    # if api_call returned a hit, then creates an object with chords/body for db to use
     if api_results != {}
       api_results.each do |song|
         song_authors = song["authors"].map { |author| author["name"] }
@@ -18,7 +20,6 @@ class GuitarParty
         end
       end
     end
-
   body_chords
   end
 end

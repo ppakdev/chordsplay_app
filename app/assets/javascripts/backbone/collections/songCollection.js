@@ -11,9 +11,4 @@ App.Collections.Songs = Backbone.Collection.extend({
     }, this);
   },
 
-  // renderResults: function(song) {
-  //   var searchResults = new App.Views.SearchResultsView({ model: song });
-  //   this.songViews[movie.get('id')] = searchResults;
-  //   this.$el.append(searchResults.$el);
-  // }
 });

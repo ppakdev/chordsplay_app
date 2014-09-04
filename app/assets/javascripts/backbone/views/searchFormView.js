@@ -2,10 +2,11 @@ App.Views.SearchFormView = Backbone.View.extend({
   el: '#search',
   initialize: function() {
     console.log("SEARCHFORMVIEWLOADED");
+
+    // tells the page with type of search is being run
     var sel = $('#search-type');
     sel.change(function(){
       var value = $(this).val();
-      console.log(value);
       $('label').text(value);
       if (value === 'Chords') {
         $('div#chord-section').removeClass('hide');
@@ -39,6 +40,8 @@ App.Views.SearchFormView = Backbone.View.extend({
     App.router.navigate('search/results');
     var searchType = $('label').text();
     var searchQuery = $('input.search-bar').val();
+
+    // depending on what search is being run, creates search data for that type
     if (searchType === 'Song Title') {
       var titleSearchQuery = {title: searchQuery};
       this.searchDB(titleSearchQuery);
@@ -53,6 +56,7 @@ App.Views.SearchFormView = Backbone.View.extend({
     }
   },
 
+  // change chord color when chosen
   clickChord: function(e) {
     var button = e.currentTarget;
     if (!$(button).hasClass('success')) {
@@ -62,6 +66,7 @@ App.Views.SearchFormView = Backbone.View.extend({
     }
   },
 
+  // from collection finding songs that match query
   searchDB: function(searchQuery) {
     console.log(searchQuery);
     var searchResult = App.Collections.searchResults.where(searchQuery);

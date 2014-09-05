@@ -9,98 +9,102 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div>
-      <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-          <li class="name">
-            <h1><a href="#">ChordsPlay</a></h1>
-          </li>
-        </ul>
-
-        <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li class="has-dropdown">
-              <a href="#">Menu</a>
-              <ul class="dropdown">
-                <li><a href="#">About</a></li>
-                <li class="active"><a href="#">Search</a></li>
-              </ul>
+    <div id="wrapper">
+      <div class="fixed">
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="#">ChordsPlay</a></h1>
             </li>
           </ul>
 
-          <!-- Left Nav Section -->
-        </section>
-      </nav>
-    </div>
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown">
+                <a href="#">Menu</a>
+                <ul class="dropdown">
+                  <li><a href="#">About</a></li>
+                  <li class="active"><a href="#">Search</a></li>
+                </ul>
+              </li>
+            </ul>
 
-
-    <div class="row">
-      <div class="large-12 columns">
-        <br>
+            <!-- Left Nav Section -->
+          </section>
+        </nav>
       </div>
-    </div>
 
-
-
-  <!-- search bar -->
-
-  <section id="search">
-    <div id="wrapper">
+    <header class="main-header">
       <div class="row">
-        <div class="small-12 columns">
-          <div class="row collapse">
-            <div class="small-2 columns">
-              <select id="search-type">
-                <option>Song Title</option>
-                <option>Artist</option>
-                <option>Chords</option>
-              </select>
-              <label for="search-type" class="hide">Song Title</label>
-            </div>
-            <div class="small-8 columns">
-              <input class="search-bar" type="text" placeholder="Search">
-            </div>
-            <div class="small-2 columns">
-              <a href="#search/results" class="button postfix"><span id="search-submit">Go!</span></a>
-            </div>
-          </div>
+        <div class="small-10 large-centered columns">
+          <h1 class="text-center">ChordsPlay</h1>
         </div>
       </div>
-      <div class="row for-chords hide" id="chord-section">
-        <div class="large-12 columns">
-          <div class="chord-list button-bar">
-            <% all_chords = {
-              major: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
-              minor: ["Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"]} %>
-            <ul class="chord-list button-group">
-              <% all_chords[:major].each do |major| %>
-              <li><span class="tiny button chords"><%= major %></span></li>
-              <% end %>
-            </ul>
-            <ul class="chord-list button-group">
-              <% all_chords[:minor].each do |minor| %>
-              <li><span class="tiny button chords"><%= minor %></span></li>
-              <% end %>
-            </ul>
+    </header>
+
+
+    <!-- search bar -->
+
+    <section id="search">
+        <div class="row">
+          <div class="small-12 columns">
+            <div class="row collapse">
+              <div class="small-2 columns">
+                <select id="search-type">
+                  <option>Song Title</option>
+                  <option>Artist</option>
+                  <option>Chords</option>
+                </select>
+                <label for="search-type" class="hide">Song Title</label>
+              </div>
+              <div class="small-8 columns">
+                <input class="search-bar" type="text" placeholder="Search">
+              </div>
+              <div class="small-2 columns">
+                <a href="#search/results" class="button postfix"><span id="search-submit">Go!</span></a>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="row for-chords hide" id="chord-section">
+          <div class="large-12 columns">
+            <div class="chord-list button-bar">
+              <% all_chords = {
+                major: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
+                minor: ["Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"]} %>
+              <ul class="chord-list button-group">
+                <% all_chords[:major].each do |major| %>
+                <li><span class="tiny button chords"><%= major %></span></li>
+                <% end %>
+              </ul>
+              <ul class="chord-list button-group">
+                <% all_chords[:minor].each do |minor| %>
+                <li><span class="tiny button chords"><%= minor %></span></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- search results view -->
+    <div class="row">
+      <div class="small-10 large-centered columns">
+        <section id="search-results">
+          <ul class="results-list">
+            <!-- results list generated by backbone/handlebar -->
+          </ul>
+        </section>
       </div>
     </div>
-  </section>
 
-  <!-- search results view -->
-  <section id="search-results">
-    <ul class="results-list">
-
-    </ul>
-  </section>
-
+  </div>
   <!-- song view -->
   <section id="song">
 

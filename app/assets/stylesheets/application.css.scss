@@ -16,7 +16,34 @@
 
  */
 
-.chord-list {
-   padding:0;
-   margin:0;
+
+#wrapper {
+  background-image:url("guitar.jpg");
+  background-color:black;
+  background-repeat: no-repeat;
+  width: 100% !important;
+  height: 100%;
+  z-index: 0;
+
+  .chord-list {
+     padding:0;
+     margin:0;
+  }
+
+  #search-results {
+    color: white;
+  }
+
+
+}
+
+
+header {
+  height: 300px;
+
+  h1 {
+    color: white;
+    font-weight: 400;
+    padding: 100px;
+  }
 }

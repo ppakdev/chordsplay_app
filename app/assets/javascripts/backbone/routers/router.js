@@ -15,6 +15,7 @@ App.Router = Backbone.Router.extend({
 
   index: function() {
     App.Collections.searchResults.fetch();
+    $('#wrapper').removeClass('hide');
     $('input').val('');
     $('#search-type').val('Song Title');
     $('div#chord-section').addClass('hide');
@@ -28,6 +29,7 @@ App.Router = Backbone.Router.extend({
   },
 
   show: function(id) {
+    $('#wrapper').addClass('hide');
     $('.results-list').empty();
     var song = new App.Models.Song({ id: id });
     song.fetch({

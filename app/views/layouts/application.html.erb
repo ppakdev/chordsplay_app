@@ -7,14 +7,20 @@
     <title><%= content_for?(:title) ? yield(:title) : "ChordsPlay" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "http://connect.soundcloud.com/sdk.js" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <script src="http://connect.soundcloud.com/sdk.js"></script>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div id="wrapper">
+    <script>
+      SC.initialize({
+        client_id: ENV["SOUNDCLOUD_CLIENT_ID"],
+        redirect_uri: "http://localhost:3000",
+      });
+    </script>
+
       <div class="fixed">
         <nav class="top-bar" data-topbar role="navigation">
           <ul class="title-area">
@@ -39,7 +45,7 @@
           </section>
         </nav>
       </div>
-
+    <div id="wrapper">  
     <header class="main-header">
       <div class="row">
         <div class="small-10 large-centered columns">
@@ -73,17 +79,17 @@
           </div>
         </div>
         <div class="row for-chords hide" id="chord-section">
-          <div class="large-12 columns">
+          <div class="small-12 small-centered columns">
             <div class="chord-list button-bar">
               <% all_chords = {
                 major: ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"],
                 minor: ["Cm", "C#m", "Dm", "D#m", "Em", "Fm", "F#m", "Gm", "G#m", "Am", "A#m", "Bm"]} %>
-              <ul class="chord-list button-group">
+              <ul class="chord-list button-group even two-up">
                 <% all_chords[:major].each do |major| %>
                 <li><span class="tiny button chords"><%= major %></span></li>
                 <% end %>
               </ul>
-              <ul class="chord-list button-group">
+              <ul class="chord-list button-group even two-up">
                 <% all_chords[:minor].each do |minor| %>
                 <li><span class="tiny button chords"><%= minor %></span></li>
                 <% end %>

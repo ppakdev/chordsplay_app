@@ -32,7 +32,6 @@ App.Views.SearchFormView = Backbone.View.extend({
   searchByEnter: function(e) {
     if (e.which === 13) {
       this.getQuery();
-      App.router.navigate('search/results');
     }
   },
 

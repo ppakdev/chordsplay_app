@@ -38,7 +38,7 @@ App.Views.SearchFormView = Backbone.View.extend({
   getQuery: function() {
     App.router.navigate('search/results');
     var searchType = $('label').text();
-    var searchQuery = $('input.search-bar').val();
+    var searchQuery = $('input.search-bar').val().capitalize();
 
     // depending on what search is being run, creates search data for that type
     if (searchType === 'Song Title') {
@@ -76,5 +76,9 @@ App.Views.SearchFormView = Backbone.View.extend({
       $('.results-list').append(this.template(resultSong.attributes));
     }
   }
-
 });
+
+
+String.prototype.capitalize = function(){
+   return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
+  };

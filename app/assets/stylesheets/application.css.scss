@@ -23,9 +23,8 @@ body{
 }
 
 #wrapper {
-  background-image: asset_url("guitar.jpg");
-  background-color: black;
-  background-repeat: no-repeat;
+  background: asset_url("guitar.jpg") no-repeat center center fixed;
+  background-size: cover;
   width: 100% !important;
   height: 100%;
   z-index: 0;
@@ -38,15 +37,20 @@ body{
       font-family: 'Roboto Slab', serif;
       font-weight: 700;
       color: #2ba6cb;
-      opacity: 0.6;
+      opacity: 0.8;
       padding: 100px;
 
     }
   }
 
+  #search {
+    opacity: 0.9;
+  }
+
   .chord-list {
      padding: 0;
      margin: 0;
+     opacity: 0.9;
   }
 
   #search-results {

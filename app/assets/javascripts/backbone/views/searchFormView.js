@@ -5,17 +5,18 @@ App.Views.SearchFormView = Backbone.View.extend({
 
     // tells the page with type of search is being run
     var sel = $('#search-type');
-    $('input.search-bar').val('').attr('placeholder', 'ex. Wonderwall');
     sel.change(function(){
       var value = $(this).val();
       $('label').text(value);
-      if (value === 'Chords') {
-        $('div#chord-section').removeClass('hide');
-        $('input.search-bar').val('').attr('placeholder', 'ex. C, D, G, Em');
-      } else if (value === 'Song Title') {
+      if (value === 'Song Title') {
         $('div#chord-section').addClass('hide');
         $('input.search-bar').val('').attr('placeholder', 'ex. Wonderwall');
-      } else {
+      } else if
+        (value === 'Chords') {
+          $('div#chord-section').removeClass('hide');
+          $('input.search-bar').val('').attr('placeholder', 'ex. C, D, G, Em');
+      }
+      else {
         $('div#chord-section').addClass('hide');
         $('input.search-bar').val('').attr('placeholder', 'ex. Adele');
       }

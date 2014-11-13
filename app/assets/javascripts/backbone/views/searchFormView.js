@@ -5,7 +5,7 @@ App.Views.SearchFormView = Backbone.View.extend({
 
     // tells the page with type of search is being run
     var sel = $('#search-type');
-    $('input.search-bar').val('').attr('placeholder', 'ex. Wonderwall')
+    $('input.search-bar').val('').attr('placeholder', 'ex. Wonderwall');
     sel.change(function(){
       var value = $(this).val();
       $('label').text(value);

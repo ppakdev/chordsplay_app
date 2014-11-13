@@ -13,9 +13,10 @@ class GuitarParty
       api_results.each do |song|
         song_authors = song["authors"].map { |author| author["name"] }
         if song_authors.include?(song_artist)
-          song["chords"].each do |chord|
-            chords.push(chord["name"])
+          chords = song["chords"].select do |chord|
+            /(A#m|Am|Bm|C#m|Cm|D#m|Dm|Em|F#m|Fm|G#m|Gm|A#|A|B|C#|C|D#|D|E|F#|F|G#|G)/.match(chord)
           end
+
         body_chords = {chords: chords.uniq.sort.join(','), body: song["body_chords_html"]}
         end
       end

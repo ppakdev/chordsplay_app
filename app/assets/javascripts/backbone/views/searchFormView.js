@@ -11,9 +11,12 @@ App.Views.SearchFormView = Backbone.View.extend({
       if (value === 'Chords') {
         $('div#chord-section').removeClass('hide');
         $('input.search-bar').val('');
+      } else if (value === 'Song Title') {
+        $('div#chord-section').addClass('hide');
+        $('input.search-bar').val('').attr('placeholder', 'ex. Wonderwall');
       } else {
         $('div#chord-section').addClass('hide');
-        $('input.search-bar').val('');
+        $('input.search-bar').val('').attr('placeholder', 'ex. Adele');
       }
     });
     this.template = HandlebarsTemplates['songs/result'];

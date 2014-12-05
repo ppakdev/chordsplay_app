@@ -7,22 +7,15 @@
     <title><%= content_for?(:title) ? yield(:title) : "ChordsPlay" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "http://connect.soundcloud.com/sdk.js" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <script>
-      SC.initialize({
-        client_id: ENV["SOUNDCLOUD_CLIENT_ID"],
-        redirect_uri: "http://localhost:3000",
-      });
-    </script>
 
       <div class="fixed">
-        <nav class="top-bar" data-topbar role="navigation">
+        <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
           <ul class="title-area">
             <li class="name">
               <h1><a href="/">ChordsPlay</a></h1>
@@ -32,19 +25,27 @@
           <section class="top-bar-section">
             <!-- Right Nav Section -->
             <ul class="right">
-              <li class="has-dropdown">
-                <a href="#">Menu</a>
-                <ul class="dropdown">
-                  <li><a href="#">About</a></li>
-                  <li class="active"><a href="#">Search</a></li>
-                </ul>
+              <li>
+                <a href="#" data-reveal-id="aboutModal">About</a>
               </li>
             </ul>
-
-            <!-- Left Nav Section -->
           </section>
         </nav>
       </div>
+
+      <!-- About modal  -->
+      <div id="aboutModal" class="reveal-modal" data-reveal>
+         <h2>About ChordsPlay</h2>
+         <p class="lead">Impress your friends</p>
+         <p>Ever wanted to know what chords you needed to know to play certain Billboard Top 100 songs? Look them up by title or artist name. </p>
+         <p>
+           Ever wanted to know what songs you could play with a specific set of chords? Now you can!
+         </p>
+         <p>ChordsPlay was made for those slightly inebriated gatherings with friends who just want to have a sing-a-long</p>
+         <a class="close-reveal-modal">&#215;</a>
+      </div>
+
+
     <div id="wrapper">
     <header class="main-header">
       <div class="row">
@@ -70,7 +71,7 @@
                 <label for="search-type" class="hide">Song Title</label>
               </div>
               <div class="small-8 columns">
-                <input class="search-bar" type="text" placeholder="ex. Wonderwall">
+                <input class="search-bar" type="text" placeholder="Search">
               </div>
               <div class="small-2 columns">
                 <a href="#search/results" class="button postfix"><span id="search-submit">Go!</span></a>
